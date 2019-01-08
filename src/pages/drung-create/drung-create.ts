@@ -44,7 +44,7 @@ export class DrungCreatePage {
         public formbuilder:FormBuilder,
         private alertCtrl: AlertController,
         public platform: Platform,
-        public localNotifications: LocalNotifications
+        private localNotifications: LocalNotifications
         ) {
 
         
@@ -74,6 +74,12 @@ export class DrungCreatePage {
   
 
   sendRequest(){
+    this.localNotifications.schedule({
+      text: 'เบสไปไหน ไปกับใคร',
+      trigger: {at: new Date(new Date().getTime() + 5000)},
+      led: 'FF0000',
+      sound: 'file://assets/sound/The.mp3'
+  });
   }
 
 }
