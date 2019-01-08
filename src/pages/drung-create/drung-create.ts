@@ -74,12 +74,14 @@ export class DrungCreatePage {
   
 
   sendRequest(){
-    this.localNotifications.schedule({
-      text: 'เบสไปไหน ไปกับใคร',
-      trigger: {at: new Date(new Date().getTime() + 5000)},
-      led: 'FF0000',
-      sound: 'file://assets/sound/The.mp3'
-  });
-  }
+
+      this.localNotifications.schedule({
+          text: 'เบสไปไหน ไปกับใคร',
+          // trigger: {at: new Date(new Date().getTime() + 5000)},
+          trigger:{at:this.notifyTime},
+          led: 'FF0000',
+          sound: 'file://assets/sound/The.mp3'
+      });
+    }
 
 }
