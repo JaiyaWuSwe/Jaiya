@@ -1,0 +1,45 @@
+<!--
+  Generated template for the DrungHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>ประวัติการกินยา</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+ 
+        <ion-list>
+            <ion-item *ngFor="let t of test">
+              <p>เวลา</p>  {{t.time}}  <br>
+              <p>ยา</p>  {{t.drug}} 
+            </ion-item>
+
+        </ion-list>
+      
+      </ion-content>
+
+
+
+<!-- <ion-card>
+        
+    <ion-card-content>
+        <ion-label color="primary">ยา</ion-label>
+          <ion-input disabled="true"></ion-input>
+        
+        <ion-label color="primary">เวลา</ion-label>
+            <ion-input disabled="true"></ion-input>
+        
+        <ion-label color="primary">จำนวน</ion-label>
+            <ion-input disabled="true"></ion-input>
+       
+    </ion-card-content>
+</ion-card> -->

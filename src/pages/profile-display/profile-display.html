@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>บัญชีผู้ใช้</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <form class="form" [formGroup]="formgroup"  (ngSubmit)="ionViewDidLoad()">
+        
+        <ion-list>
+          <ion-item>
+            <ion-label  color="primary">ชื่อ</ion-label>
+            <ion-input disabled="true" formControlName="firstName" [(ngModel)]="firstName" ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">นามสกุล</ion-label>
+            <ion-input disabled="true" formControlName="lastName" [(ngModel)]="lastName" ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">วัน-เดือน-ปีวันเกิด</ion-label>
+            <ion-input  disabled="true" formControlName="date" [(ngModel)]="date"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">เพศ</ion-label>  
+            <ion-input disabled="true" formControlName="gender" [(ngModel)]="gender"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">กรุ๊ปเลือด</ion-label>
+            <ion-input disabled="true" formControlName="bloodType" [(ngModel)]="bloodType"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">โรคประจำตัว</ion-label>
+            <ion-input disabled="true" formControlName="disease" [(ngModel)]="disease"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">ยาที่แพ้</ion-label>
+            <ion-input disabled="true" formControlName="drung" [(ngModel)]="drung"></ion-input>
+          </ion-item> 
+         </ion-list>
+         <div padding>
+            <button   ion-button  color="light" block (click)="editProfile()">แก้ไขข้อมูล</button>
+            <!-- <button ion-button  color="light" block [disabled]="!formgroup.valid">แก้ไขข้อมูล</button> -->
+        </div>
+         
+    </form>
+
+
+
+</ion-content>

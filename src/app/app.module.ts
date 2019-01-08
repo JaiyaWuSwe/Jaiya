@@ -1,0 +1,71 @@
+import { FirstpagePage } from './../pages/firstpage/firstpage';
+import { ProfileUpdatePage } from './../pages/profile-update/profile-update';
+import { ProfileDisplayPage } from './../pages/profile-display/profile-display';
+import { ProfileCreatePage } from './../pages/profile-create/profile-create';
+import { MenulistPage } from './../pages/menulist/menulist';
+import { MenuPage } from './../pages/menu/menu';
+import { LoginPage } from './../pages/login/login';
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { DrungCreatePage } from '../pages/drung-create/drung-create';
+import { DrungDisplayPage } from '../pages/drung-display/drung-display';
+import { DrungHistoryPage } from '../pages/drung-history/drung-history';
+import { RegisterPage } from '../pages/register/register';
+
+
+
+
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    MenuPage,
+    MenulistPage,
+    DrungCreatePage,
+    DrungDisplayPage,
+    DrungHistoryPage,
+    ProfileCreatePage,
+    ProfileDisplayPage
+    ,ProfileUpdatePage,
+    RegisterPage,
+    FirstpagePage
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    MenuPage,
+    MenulistPage,
+    DrungCreatePage,
+    DrungDisplayPage,
+    DrungHistoryPage,
+    ProfileCreatePage,
+    ProfileDisplayPage
+    ,ProfileUpdatePage,
+    RegisterPage,
+    FirstpagePage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    LocalNotifications,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
+})
+export class AppModule {}

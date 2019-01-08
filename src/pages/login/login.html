@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ลงชื่อเข้าใช้</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding class="bg">
+    <div text-center>
+          <ion-img width="100" height="100" src="../assets/imgs/Drug.png"></ion-img>
+    </div>
+    
+    <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
+        <ion-item><span  item-left><ion-icon name="person"></ion-icon> </span>
+          <ion-label floating color="primary">ชื่อผู้ใช้</ion-label>
+          <ion-input type="text" formControlName="username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.username">
+            <div class="error-message" *ngIf="formgroup.get('username').hasError(validation.type) && (formgroup.get('username').dirty || formgroup.get('username').touched)">
+              <br>
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <br>
+        <br>
+        <ion-item><span  item-left><ion-icon name="unlock"></ion-icon> </span>
+            <ion-label floating color="primary">พาสเวิดร์</ion-label>
+            <ion-input type="Password" formControlName="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message" *ngIf="formgroup.get('password').hasError(validation.type) && (formgroup.get('password').dirty || formgroup.get('password').touched)">
+                  <br>
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    
+        
+  
+  
+        <div padding>
+            <ion-row>
+              <ion-col class="signup-col">
+                <button ion-button color="light" block  [disabled]="!formgroup.valid">ลงชื่อเข้าใช้</button>
+              </ion-col>
+            </ion-row>
+        </div>
+      </form>
+  
+</ion-content> 
+
+
+
+
+
+
+   
+  

@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>สมัครสมาชิก</ion-title>
+  </ion-navbar>
+</ion-header>
+  <ion-content>
+    <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
+        <!-- <div text-center>
+            <ion-img width="100" height="100" src="../assets/imgs/Drug.png"></ion-img>
+        </div> -->
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating color="primary">ชื่อผู้ใช้</ion-label>
+          <ion-input type="text" formControlName="username"  [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.name">
+            <div class="error-message" *ngIf="formgroup.get('username').hasError(validation.type) && (formgroup.get('username').dirty || formgroup.get('username').touched)">
+              {{ validation.message }}
+            </div>
+            </ng-container>
+        </div>
+  
+      <div formGroupName="matching_passwords">
+        <ion-item>
+          <ion-label floating color="primary">พาสเวิดร์</ion-label>
+          <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message" *ngIf="formgroup.get('matching_passwords').get('password').hasError(validation.type) && (formgroup.get('matching_passwords').get('password').dirty || formgroup.get('matching_passwords').get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-label floating color="primary">คอนเฟิร์มพาสเวิดร์</ion-label>
+          <ion-input type="password" formControlName="confirm_password"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.confirm_password">
+            <div class="error-message" *ngIf="formgroup.get('matching_passwords').get('confirm_password').hasError(validation.type) && (formgroup.get('matching_passwords').get('confirm_password').dirty || formgroup.get('matching_passwords').get('confirm_password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.matching_passwords">
+          <div class="error-message" *ngIf="formgroup.get('matching_passwords').hasError(validation.type) && (formgroup.get('matching_passwords').get('confirm_password').dirty || formgroup.get('matching_passwords').get('confirm_password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label floating color="primary">อีเมล</ion-label>
+        <ion-input type="Email" formControlName="email"  [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div class="error-message" *ngIf="formgroup.get('email').hasError(validation.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      
+
+      <ion-item>
+        <ion-label floating color="primary">เบอร์โทรศัพท์</ion-label>
+        <ion-input type="text" formControlName="tell"  [(ngModel)]="tell"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tell">
+          <div class="error-message" *ngIf="formgroup.get('tell').hasError(validation.type)  && (formgroup.get('tell').dirty || formgroup.get('tell').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+  
+    </ion-list>
+  
+    <div padding>
+        
+        <button ion-button color="light" block>สมัครสมาชิก</button>
+      <!-- <button ion-button color="primary" full type="submit" [disabled]="!formgroup.valid">สมัครสมาชิก</button> -->
+      <!-- <button ion-button  color="primary" full  [disabled]="!formgroup.valid" block (click)="sendRequest(username, password, email, tell)">สมัครสมาชิก</button> -->
+    </div>
+    <ion-card>
+      <ion-card-header>
+        Return Message:
+      </ion-card-header>
+      <ion-card-content>
+        {{ returnMessage }}
+      </ion-card-content>
+    </ion-card>
+  
+  </form>
+  </ion-content>

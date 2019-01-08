@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>รายการแจ้งเตือน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content >
+ 
+  <ion-list>
+      <ion-item class="bg" *ngFor="let t of test">
+          
+            <p>เวลา </p> {{t.time}}  <br>
+            <p>ยา </p> {{t.drug}}  {{t.amount}}  {{t.volume}} {{t.duration}}
+          <ion-item class="bg">
+              <ion-toggle checked="false"></ion-toggle>
+          </ion-item>
+          
+      </ion-item>
+  </ion-list>
+  
+
+</ion-content>
+
+<!-- <ion-content>
+    <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary">ยา</ion-label>
+          <ion-input disabled="true" formControlName="drug" [(ngModel)]="drug"></ion-input>
+          <ion-toggle color="secondary" checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">เวลา</ion-label>
+          <ion-input disabled="true" formControlName="time" [(ngModel)]="time"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">จำนวน</ion-label>
+          <ion-input disabled="true" formControlName="amount" [(ngModel)]="amount"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+</ion-content> -->

@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>กรอกข้อมูลผู้ใช้</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
+  <ion-list>
+    <ion-item>
+      <ion-label  floating color="primary">ชื่อ</ion-label>
+      <ion-input type="text" formControlName="firstName" [(ngModel)]="firstName"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.firstName">
+          <div class="error-message" *ngIf="formgroup.get('firstName').hasError(validation.type) && (formgroup.get('firstName').dirty || formgroup.get('firstName').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+  
+    <ion-item>
+        <ion-label floating color="primary">นามสกุล</ion-label>
+        <ion-input type="text" formControlName="lastName" [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.lastName">
+          <div class="error-message" *ngIf="formgroup.get('lastName').hasError(validation.type) && (formgroup.get('lastName').dirty || formgroup.get('lastName').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+
+
+    <ion-item>
+          <ion-label floating color="primary">วัน-เดือน-ปีวันเกิด</ion-label>
+          <ion-datetime  displayFormat="DD/MM/YYYY" formControlName="date" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.date">
+          <div class="error-message" *ngIf="formgroup.get('date').hasError(validation.type) && (formgroup.get('date').dirty || formgroup.get('date').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+    
+    <ion-item>
+          <ion-label floating color="primary">เพศ</ion-label>
+            <ion-select formControlName="gender" [(ngModel)]="gender">
+              <ion-option value="ชาย">ชาย</ion-option>
+              <ion-option value="หญิง">หญิง</ion-option>
+            </ion-select>
+    </ion-item>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.gender">
+          <div class="error-message" *ngIf="formgroup.get('gender').hasError(validation.type) && (formgroup.get('gender').dirty || formgroup.get('gender').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+   
+    <ion-item>
+            <ion-label floating color="primary">กรุ๊ปเลือด</ion-label>
+            <ion-select formControlName="bloodType" [(ngModel)]="bloodType">
+                <ion-option value="A">A</ion-option>
+                <ion-option value="B">B</ion-option>
+                <ion-option value="O">O</ion-option>
+                <ion-option value="AB">AB</ion-option>
+              </ion-select>
+    </ion-item>
+    <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.bloodType">
+          <div class="error-message" *ngIf="formgroup.get('bloodType').hasError(validation.type) && (formgroup.get('bloodType').dirty || formgroup.get('bloodType').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+    
+    <ion-item>
+          <ion-label floating color="primary">โรคประจำตัว</ion-label>
+          <ion-input type="text" formControlName="disease" [(ngModel)]="disease"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+            <ion-label floating color="primary">ยาที่แพ้</ion-label>
+            <ion-input type="text" formControlName="drung" [(ngModel)]="drung"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+        <!-- <button ion-button block>Post</button> -->
+      <button ion-button color="light" block  [disabled]="!formgroup.valid">บันทึก</button>
+  </div>
+
+
+      
+
+</form>
+</ion-content>
+

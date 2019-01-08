@@ -1,0 +1,77 @@
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>ตั้งค่าแจ้งเตือน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+<ion-content>
+    <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
+        <ion-list>
+            <ion-item>
+              <ion-label floating color="primary">เวลา</ion-label>
+              <ion-datetime  displayFormat="h:mm " pickerFormat="h mm " formControlName="notifyTime" [(ngModel)]="notifyTime"></ion-datetime>
+            </ion-item>
+            <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.notifyTime">
+                  <div class="error-message" *ngIf="formgroup.get('notifyTime').hasError(validation.type) && (formgroup.get('notifyTime').dirty || formgroup.get('notifyTime').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+            </div>
+            <ion-item>
+              <ion-label  floating color="primary">ชื่อยา</ion-label>
+              <ion-input type="text" formControlName="drug" [(ngModel)]="drug"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.drug">
+                  <div class="error-message" *ngIf="formgroup.get('drug').hasError(validation.type) && (formgroup.get('drug').dirty || formgroup.get('drug').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+            </div>
+            <ion-item>
+                <ion-label color="primary">จำนวน</ion-label>
+                <ion-input type="text" placeholder="จำนวน" formControlName="amount" [(ngModel)]="amount"></ion-input>
+                <ion-select formControlName="volume" [(ngModel)]="volume">
+                    <ion-option value="1">เม็ด</ion-option>
+                    <ion-option value="2">ช้อนชา</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label floating color="primary">ช่วงเวลา</ion-label>
+                <ion-select formControlName="duration" [(ngModel)]="duration">
+                    <ion-option value="1">ก่อนอาหาร</ion-option>
+                    <ion-option value="2">หลังอาหาร</ion-option>
+                </ion-select>
+            </ion-item>
+            <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.duration">
+                  <div class="error-message" *ngIf="formgroup.get('duration').hasError(validation.type) && (formgroup.get('duration').dirty || formgroup.get('duration').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+            </div>
+            <ion-item>
+                <ion-label floating color="primary">เตือนซ้ำ</ion-label>
+                <ion-select formControlName="alert" [(ngModel)]="alert">
+                    <ion-option value="5">5</ion-option>
+                    <ion-option value="10">10</ion-option>
+                    <ion-option value="15">15</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+        <div padding>
+            <!-- <button ion-button block>Post</button> -->
+          <button ion-button color="light" block [disabled]="!formgroup.valid">บันทึก</button>
+        </div>
+    </form>
+    
+</ion-content>
