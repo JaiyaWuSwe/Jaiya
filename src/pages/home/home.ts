@@ -7,15 +7,18 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public notifyTime;
 
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications) {
 
   }
 
   test(){
+    
     this.localNotifications.schedule({
         text: 'เบสไปไหน ไปกับใคร',
-        trigger: {at: new Date(new Date().getTime() + 5000)},
+        // trigger: {at: new Date(new Date().getTime() + 5000)},
+        trigger:{at:this.notifyTime},
         led: 'FF0000',
         sound: 'file://assets/sound/The.mp3'
     });

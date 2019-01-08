@@ -17,7 +17,7 @@
         <ion-list>
             <ion-item>
               <ion-label floating color="primary">เวลา</ion-label>
-              <ion-datetime  displayFormat="h:mm " pickerFormat="h mm " formControlName="notifyTime" [(ngModel)]="notifyTime"></ion-datetime>
+              <ion-datetime  displayFormat="h:mm " pickerFormat="H mm " formControlName="notifyTime" [(ngModel)]="notifyTime"></ion-datetime>
             </ion-item>
             <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.notifyTime">
