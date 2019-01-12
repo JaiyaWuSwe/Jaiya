@@ -26,6 +26,7 @@ export class ProfileCreatePage {
     public gender;
     public userId;
     public number;
+    public base_url ='http://localhost:8080/jaiya/api';
 
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
@@ -75,21 +76,13 @@ export class ProfileCreatePage {
           headers: this.headers
         }
         // // Create JSON object from username & email
-        let jsObject = { firstName: this.firstName, 
-                        lastName: this.lastName, 
-                        date: this.date, 
-                        gender: this.gender,
-                        bloodType: this.bloodType,
-                        disease: this.disease,
-                        drung: this.drung,
-                        machineName: this.machineName,
-                        // userId:this._id
-                        userId:this.userId
+        let jsObject = { 
+                        
                       
                       }
         jsonData = JSON.stringify(jsObject);
     
-        this.http.post('http://localhost:8080/jaiya/api/UserData/insert', jsonData, option)
+        this.http.post(this.base_url+'/UserData/insert', jsonData, option)
             .subscribe((data:any) => {  
 
               console.log(data);
@@ -117,7 +110,7 @@ export class ProfileCreatePage {
     
       }
       ionViewDidLoad() {
-        this.userId= window.localStorage.getItem('userId');
+
         console.log('ionViewDidLoad ProfileCreatePage');
   }
 

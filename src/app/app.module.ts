@@ -1,3 +1,6 @@
+import { MapSearchPage } from './../pages/map-search/map-search';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { MapDisplayPage } from './../pages/map-display/map-display';
 import { FirstpagePage } from './../pages/firstpage/firstpage';
 import { ProfileUpdatePage } from './../pages/profile-update/profile-update';
 import { ProfileDisplayPage } from './../pages/profile-display/profile-display';
@@ -19,8 +22,8 @@ import { DrungCreatePage } from '../pages/drung-create/drung-create';
 import { DrungDisplayPage } from '../pages/drung-display/drung-display';
 import { DrungHistoryPage } from '../pages/drung-history/drung-history';
 import { RegisterPage } from '../pages/register/register';
-
-
+import { GoogleMaps}from '@ionic-native/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { RegisterPage } from '../pages/register/register';
     ProfileDisplayPage
     ,ProfileUpdatePage,
     RegisterPage,
-    FirstpagePage
+    FirstpagePage,
+    MapDisplayPage,
+    MapSearchPage
   ],
   imports: [
     BrowserModule,
@@ -59,12 +64,17 @@ import { RegisterPage } from '../pages/register/register';
     ProfileDisplayPage
     ,ProfileUpdatePage,
     RegisterPage,
-    FirstpagePage
+    FirstpagePage,
+    MapDisplayPage,
+    MapSearchPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     LocalNotifications,
+    GoogleMaps,
+    AndroidPermissions,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

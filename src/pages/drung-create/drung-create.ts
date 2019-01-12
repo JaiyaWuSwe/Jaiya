@@ -1,3 +1,4 @@
+import { DrungDisplayPage } from './../drung-display/drung-display';
 import { Component } from '@angular/core';
 import {NavController, NavParams,Platform, AlertController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -75,6 +76,44 @@ export class DrungCreatePage {
 
   sendRequest(){
 
+    let jsonData;
+    
+    let option = {
+      headers: this.headers
+    }
+    // // Create JSON object from username & email
+    let jsObject = { userId: this.userId, 
+                    time: this.notifyTime, 
+                    drug:this.drug,
+                    amount:this.amount
+                  }
+    jsonData = JSON.stringify(jsObject);
+    this.http.post(this.base_url+'/timetogetpillow/insert', jsonData, option)
+            .subscribe((data:any) => {  
+
+              console.log(data);
+              if(data.message == true  ){ 
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกสำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(DrungDisplayPage);
+              
+              }
+              else{
+                
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกไม่สำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(DrungDisplayPage);
+              } 
+            });
+
       this.localNotifications.schedule({
           text: 'เบสไปไหน ไปกับใคร',
           // trigger: {at: new Date(new Date().getTime() + 5000)},
@@ -82,6 +121,11 @@ export class DrungCreatePage {
           led: 'FF0000',
           sound: 'file://assets/sound/The.mp3'
       });
+      
     }
+    ionViewDidLoad() {
+      this.userId= window.localStorage.getItem('userId');
+      console.log('ionViewDidLoad ProfileCreatePage');
+}
 
 }
