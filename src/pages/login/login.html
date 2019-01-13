@@ -9,12 +9,14 @@
   
 <ion-content padding class="bg">
     <div text-center>
-          <ion-img width="100" height="100" src="../assets/imgs/Drug.png"></ion-img>
+          <ion-img width="80" height="100" src="../assets/imgs/drung.png"></ion-img>
     </div>
-    
+    <br>
+    <br>
+ 
     <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
         <ion-item><span  item-left><ion-icon name="person"></ion-icon> </span>
-          <ion-label floating color="primary">ชื่อผู้ใช้</ion-label>
+          <ion-label  color="primary">ชื่อผู้ใช้</ion-label>
           <ion-input type="text" formControlName="username" [(ngModel)]="username"></ion-input>
         </ion-item>
 
@@ -27,9 +29,8 @@
           </ng-container>
         </div>
         <br>
-        <br>
         <ion-item><span  item-left><ion-icon name="unlock"></ion-icon> </span>
-            <ion-label floating color="primary">พาสเวิดร์</ion-label>
+            <ion-label  color="primary">รหัสผ่าน</ion-label>
             <ion-input type="Password" formControlName="password" [(ngModel)]="password"></ion-input>
           </ion-item>
           <div class="validation-errors">
@@ -52,6 +53,7 @@
             </ion-row>
         </div>
       </form>
+ 
   
 </ion-content> 
 
