@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Menu } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
@@ -98,7 +98,7 @@ export class ProfileCreatePage {
                   buttons: ['ตกลง']
                 });
                 alert.present();
-                this.navCtrl.setRoot(MenuPage);
+                this.navCtrl.push(Menu, {});
               
               }
               else{
@@ -109,7 +109,7 @@ export class ProfileCreatePage {
                   buttons: ['ตกลง']
                 });
                 alert.present();
-                this.navCtrl.setRoot(ProfileCreatePage);
+                this.navCtrl.push(ProfileCreatePage, {});
               } 
             });
     

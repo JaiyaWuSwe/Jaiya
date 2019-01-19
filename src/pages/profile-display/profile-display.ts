@@ -90,7 +90,7 @@ constructor(public navCtrl: NavController,
               buttons: ['ตกลง']
             });
             alert.present();
-            this.navCtrl.setRoot(ProfileCreatePage);
+            this.navCtrl.push(ProfileCreatePage, {});
             
           }
           console.log(data);        
@@ -102,7 +102,7 @@ constructor(public navCtrl: NavController,
   editProfile(){
     this._id = this._id;
     console.log(this._id);
-    this.navCtrl.setRoot(ProfileUpdatePage);
+    this.navCtrl.push(ProfileCreatePage, {});
     }
         
 

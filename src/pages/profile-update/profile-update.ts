@@ -83,7 +83,7 @@ export class ProfileUpdatePage {
                   buttons: ['ตกลง']
                 });
                 alert.present();
-                this.navCtrl.setRoot(ProfileDisplayPage);
+                this.navCtrl.push(ProfileDisplayPage, {});
               
               }
               else{
@@ -94,7 +94,7 @@ export class ProfileUpdatePage {
                   buttons: ['ตกลง']
                 });
                 alert.present();
-                this.navCtrl.setRoot(MenulistPage);
+                this.navCtrl.push(ProfileDisplayPage, {});
               } 
               
             });
@@ -123,8 +123,7 @@ export class ProfileUpdatePage {
               this.machineName = data.data.machineName,
               this._id = data.data._id,
               this.gender = data.data.gender
-            }
-            console.log(data);        
+            }      
           });
 
     console.log('ionViewDidLoad ProfileUpdatePage');

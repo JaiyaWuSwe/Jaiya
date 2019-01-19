@@ -28,7 +28,6 @@ export class LoginPage {
   public base_url ='http://172.16.82.72:8080/jaiya/api/';
 
   
-  
 
   constructor(public navCtrl: NavController,
     public http : HttpClient,

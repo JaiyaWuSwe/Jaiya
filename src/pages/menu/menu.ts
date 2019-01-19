@@ -3,7 +3,7 @@ import { DrungHistoryPage } from './../drung-history/drung-history';
 import { DrungDisplayPage } from './../drung-display/drung-display';
 import { FirstpagePage } from './../firstpage/firstpage';
 import { Component, ViewChild  } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav ,App,AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Nav ,App,AlertController, Menu} from 'ionic-angular';
 import { MenulistPage } from '../menulist/menulist';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../login/login';
@@ -37,10 +37,11 @@ export class MenuPage {
   ionViewWillEnter() {
     this.pages = [
       { title: 'บัญชีผู้ใช้', page: ProfileCreatePage, icon: 'home' },
-      { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'planet' },
-      { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'home' },
-      { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'planet' },
-      { title: 'ค้นหาโรงพยาบาล', page: MapSearchPage, icon: 'planet' }
+      { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'ios-alarm-outline' },
+      { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'ios-alert-outline' },
+      { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'ios-clipboard-outline' },
+      { title: 'ค้นหาโรงพยาบาล', page: MapSearchPage, icon: 'planet' },
+      { title: 'หน้าหลัก', page: MenulistPage, icon: 'home' }
       
     ];
     this.openPage(MenulistPage);

@@ -26,11 +26,12 @@ export class FirstpagePage {
     console.log('ionViewDidLoad Login');
   }
   login() {
-    this.navCtrl.setRoot(LoginPage);
+    
+    this.navCtrl.push(LoginPage, {});
   }
 
   register() {
-    this.navCtrl.setRoot(RegisterPage);
+    this.navCtrl.push(RegisterPage, {});
   }
  
 }

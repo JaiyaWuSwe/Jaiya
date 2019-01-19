@@ -86,7 +86,7 @@ export class MapDisplayPage {
     this.map = GoogleMaps.create('map_canvas', mapOptions);
     let marker: Marker = this.map.addMarkerSync({
       title: 'ตำแหน่งของฉัน',
-      icon: 'yellow',
+      icon: 'green',
       animation: 'DROP',
       position: {
         lat:this.lat,
@@ -96,9 +96,9 @@ export class MapDisplayPage {
     
   }
   
-  addMarker(hoslat,hoslng,name){
+  addMarker(hoslat,hoslng,name,phone){
     let marker1: Marker = this.map.addMarkerSync({
-      title: name,
+      title: name+" เบอร์โทรศัพท์ "+ phone,
       icon: 'blue',
       animation: 'DROP',
       position: {
@@ -130,15 +130,16 @@ export class MapDisplayPage {
               var hoslat = data.data.latitude;
               var hoslng = data.data.longitude;
               var name = data.data.name;
-              this.addMarker(hoslat,hoslng,name);
+              var phone = data.data.phone;
+              this.addMarker(hoslat,hoslng,name, phone);
             }else{
               var datasearch = data.datasearch;
               Object.keys(datasearch).forEach(key=> {
               
-               var d = getDistanceFromLatLonInKm(this.lat,this.lng,datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name);
+               var d = getDistanceFromLatLonInKm(this.lat,this.lng,datasearch[key].latitude,datasearch[key].longitude);
                 
                if( d <= 50){
-                this.addMarkerred(datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name,d);
+                this.addMarkerred(datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name,d,datasearch[key].phone);
                }
             });
             
@@ -146,7 +147,7 @@ export class MapDisplayPage {
           }
 
         });
-        function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,name) {
+        function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
           var R = 6371; // Radius of the earth in km
           var dLat = deg2rad(lat2-lat1);  // deg2rad below
           var dLon = deg2rad(lon2-lon1); 
@@ -166,9 +167,9 @@ export class MapDisplayPage {
       }
 
 
-      addMarkerred(hoslat,hoslng,name,d){
+      addMarkerred(hoslat,hoslng,name,d,phone){
         let marker2: Marker = this.map.addMarkerSync({
-          title: name +"    ระยะห่าง : " + d + "กิโลเมตร",
+          title: name +" เบอร์โทรศัพท์: "+phone+"  ระยะห่าง : " + d + "กิโลเมตร",
           icon: 'red',
           animation: 'DROP',
           position: {

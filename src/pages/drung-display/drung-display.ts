@@ -103,7 +103,7 @@ Delete(_id) {
     headers: this.headers
   }
   let jsObject = { 
-                  _id : _id ,
+                  id : _id ,
                     
                   }
   jsonData = JSON.stringify(jsObject);

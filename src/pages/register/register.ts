@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
@@ -113,7 +114,7 @@ export class RegisterPage {
               // buttons: ['OK']
             });
             alert.present();
-            this.navCtrl.setRoot(MenuPage);
+            this.navCtrl.push(LoginPage, {});
           
           }
           else{
@@ -124,7 +125,7 @@ export class RegisterPage {
               buttons: ['OK']
             });
             alert.present();
-            this.navCtrl.setRoot(RegisterPage);
+            this.navCtrl.push(LoginPage, {});
           }
          
           
