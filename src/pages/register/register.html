@@ -7,12 +7,13 @@
   </ion-navbar>
 </ion-header>
   <ion-content>
+  <div class="login-box">
     <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
         <!-- <div text-center>
             <ion-img width="100" height="100" src="../assets/imgs/Drug.png"></ion-img>
         </div> -->
-      <ion-list>
-
+    
+     
         <ion-item>
           <ion-label floating color="primary">ชื่อผู้ใช้</ion-label>
           <ion-input type="text" formControlName="username"  [(ngModel)]="username"></ion-input>
@@ -27,7 +28,7 @@
   
       <div formGroupName="matching_passwords">
         <ion-item>
-          <ion-label floating color="primary">พาสเวิดร์</ion-label>
+          <ion-label floating color="primary">รหัสผ่าน</ion-label>
           <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
         </ion-item>
         <div class="validation-errors">
@@ -39,7 +40,7 @@
         </div>
   
         <ion-item>
-          <ion-label floating color="primary">คอนเฟิร์มพาสเวิดร์</ion-label>
+          <ion-label floating color="primary">ยืนยันรหัสผ่าน</ion-label>
           <ion-input type="password" formControlName="confirm_password"></ion-input>
         </ion-item>
         <div class="validation-errors">
@@ -83,23 +84,30 @@
           </div>
         </ng-container>
       </div>
+
+
   
-    </ion-list>
+   
   
+   
     <div padding>
-        
-        <button ion-button color="light" block>สมัครสมาชิก</button>
-      <!-- <button ion-button color="primary" full type="submit" [disabled]="!formgroup.valid">สมัครสมาชิก</button> -->
-      <!-- <button ion-button  color="primary" full  [disabled]="!formgroup.valid" block (click)="sendRequest(username, password, email, tell)">สมัครสมาชิก</button> -->
+      <ion-col class="signup-col">
+        <button ion-button  block>สมัครสมาชิก</button>
+      </ion-col>  
     </div>
-    <ion-card>
+
+      
+    
+    <!-- <ion-card>
       <ion-card-header>
         Return Message:
       </ion-card-header>
       <ion-card-content>
         {{ returnMessage }}
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
   
   </form>
+</div>
+
   </ion-content>

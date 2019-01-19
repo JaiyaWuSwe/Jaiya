@@ -119,7 +119,7 @@ export class RegisterPage {
             
             let alert = this.alertCtrl.create({
               title: 'สมัครสมาชิกไม่สำเร็จ',
-              message: 'ชื่อผู้ใช้มีการใช้งานแล้ว',
+              message: 'ข้อมูลไม่ถูกต้อง',
               buttons: ['OK']
             });
             alert.present();
