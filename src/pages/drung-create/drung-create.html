@@ -15,9 +15,9 @@
 <ion-content>
     <form class="form" [formGroup]="formgroup"  (ngSubmit)="sendRequest()">
         <ion-list>
-            <ion-item>
+             <ion-item>
               <ion-label floating color="primary">เวลา</ion-label>
-              <ion-datetime  displayFormat="h:mm " pickerFormat="H mm " formControlName="notifyTime" [(ngModel)]="notifyTime"></ion-datetime>
+              <ion-datetime  displayFormat="HH : mm " pickerFormat="HH mm" formControlName="notifyTime" [(ngModel)]="notifyTime"></ion-datetime>
             </ion-item>
             <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.notifyTime">
@@ -26,7 +26,7 @@
                   </div>
                 </ng-container>
             </div>
-            <ion-item>
+           <!-- <ion-item>
               <ion-label  floating color="primary">ชื่อยา</ion-label>
               <ion-input type="text" formControlName="drug" [(ngModel)]="drug"></ion-input>
             </ion-item>
@@ -58,15 +58,15 @@
                     {{ validation.message }}
                   </div>
                 </ng-container>
-            </div>
-            <ion-item>
+            </div> -->
+            <!-- <ion-item>
                 <ion-label floating color="primary">เตือนซ้ำ</ion-label>
                 <ion-select formControlName="alert" [(ngModel)]="alert">
                     <ion-option value="5">5</ion-option>
                     <ion-option value="10">10</ion-option>
                     <ion-option value="15">15</ion-option>
                 </ion-select>
-            </ion-item>
+            </ion-item> -->
         </ion-list>
         <div padding>
             <!-- <button ion-button block>Post</button> -->

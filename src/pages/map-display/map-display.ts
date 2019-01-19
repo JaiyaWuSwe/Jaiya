@@ -9,7 +9,7 @@ import {
   Marker,
   GoogleMapsEvent
 } from '@ionic-native/google-maps';
-import { a } from '@angular/core/src/render3';
+
 
 
 
@@ -35,8 +35,8 @@ export class MapDisplayPage {
   public current_location;
   map: GoogleMap;
   hospital: string;
-  // public base_url ='http://localhost:8080/jaiya/api';
-  public base_url ='http://172.16.82.195:8080/jaiya/api/';
+  // public base_url ='http://localhost:8080/jaiya/api/';
+  public base_url ='http://172.16.82.153:8080/jaiya/api/';
   
   constructor(private geolocation: Geolocation ,  public toastCtrl: ToastController, public navParams: NavParams
     ,public http : HttpClient,public navCtrl: NavController, private alertCtrl: AlertController) { 
@@ -85,7 +85,7 @@ export class MapDisplayPage {
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
     let marker: Marker = this.map.addMarkerSync({
-      title: 'Ionic',
+      title: 'ตำแหน่งของฉัน',
       icon: 'blue',
       animation: 'DROP',
       position: {
@@ -93,9 +93,7 @@ export class MapDisplayPage {
         lng:this.lng
       }
     });
-    // marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-    //   alert('clicked');
-    // });
+    
   }
   
   addMarker(hoslat,hoslng,name){
@@ -108,10 +106,8 @@ export class MapDisplayPage {
         lng:hoslng
       }
     });
-    alert(hoslat);
-    // marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-    //   alert('clicked');
-    // });
+    
+   
   }
 
   sendRequest(){
@@ -129,22 +125,57 @@ export class MapDisplayPage {
 
     this.http.post(this.base_url+'MapLocation/SearchHospital', jsonData, option)
         .subscribe((data:any) => {  
-          alert("search1");
-          console.log(data);
-          if(data.message == true  ){ 
-            alert("search2");
-          var hoslat = data.data.latitude;
-          var hoslng = data.data.longitude;
-          var name = data.data.name;
-          alert(name);
-          this.addMarker(hoslat,hoslng,name);
+          if(data.message == true ){ 
+            if(data.data){
+              var hoslat = data.data.latitude;
+              var hoslng = data.data.longitude;
+              var name = data.data.name;
+              this.addMarker(hoslat,hoslng,name);
+            }else{
+              var datasearch = data.datasearch;
+              Object.keys(datasearch).forEach(key=> {
+                // console.log(datasearch[key].latitude);   
+               var d = getDistanceFromLatLonInKm(this.lat,this.lng,datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name);
+                
+               if( d <= 50){
+                this.addMarkerred(datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name,d);
+               }
+            });
+            
+            }
           }
-          else{
-            alert(name);
-           
-          } 
+
+        });
+        function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,name) {
+          var R = 6371; // Radius of the earth in km
+          var dLat = deg2rad(lat2-lat1);  // deg2rad below
+          var dLon = deg2rad(lon2-lon1); 
+          var a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2)
+            ; 
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+          var d = R * c; // Distance in km
+          return d;
+        }
+        
+        function deg2rad(deg) {
+          return deg * (Math.PI/180)
+        }
+      }
+
+
+      addMarkerred(hoslat,hoslng,name,d){
+        let marker2: Marker = this.map.addMarkerSync({
+          title: name +"    ระยะห่าง : " + d + "กิโลเมตร",
+          icon: 'red',
+          animation: 'DROP',
+          position: {
+            lat:hoslat,
+            lng:hoslng
+          }
         });
 
   }
-
 }

@@ -13,10 +13,11 @@
   <ion-list>
       <ion-item class="bg" *ngFor="let t of test">
           
-            <p>เวลา </p> {{t.time}}  <br>
+            <p>เวลา </p> {{t.time}} {{t._id}} <br>
             <p>ยา </p> {{t.drug}}  {{t.amount}}  {{t.volume}} {{t.duration}}
           <ion-item class="bg">
-              <ion-toggle checked="false"></ion-toggle>
+              <!-- <ion-toggle checked="false"></ion-toggle> -->
+              <button ion-button color="secondary" (click)="goTo(t._id)">ค้นหาโรงพยาบาล</button>
           </ion-item>
           
       </ion-item>

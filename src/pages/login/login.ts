@@ -13,9 +13,7 @@ export const headers = new HttpHeaders().set("X-CustomHeader", "custom header va
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  // public base_url = "http://localhost:8080/jaiya/api/";
-  // http://localhost:8080/jaiya/api/MapLocation/SearchHospital
-  // public base_url = "http://172.18.133.163/jaiya/api/";
+  
   formgroup:FormGroup;
   public headers = new HttpHeaders().set("Content-Type","application/json");
 
@@ -26,8 +24,8 @@ export class LoginPage {
   public number;
   public status = 1;
   public alarms;
-  public base_url = "http://localhost:8080/jaiya/api/";
-  // public base_url = "http://172.18.133.100:8080/jaiya/api/";
+  // public base_url = "http://localhost:8080/jaiya/api/";
+  public base_url ='http://172.16.82.153:8080/jaiya/api/';
 
   
   
@@ -98,28 +96,28 @@ export class LoginPage {
 
   }
   ionViewDidLoad() {
-    console.log(this.base_url);
-    this.userId= window.localStorage.getItem('userId');
-      let jsonData;
+    // console.log(this.base_url);
+    // this.userId= window.localStorage.getItem('userId');
+    //   let jsonData;
       
 
-      let option = {
-        headers: this.headers
-      }
-      let jsObject = { userId : this.userId , status : this.status}
-      jsonData = JSON.stringify(jsObject);
-      this.http.post(this.base_url+'timetogetpillow/showtimetogetpillow', jsonData, option)
-          .subscribe((data:any) => {
-              this.alarms = data.data;
-              // console.log(data);
-              // this.time = data.data.time,
-              // this.drug = data.data.drug,
-              // this.amount = data.data.amount,
-              // this.volume = data.data.volume,
-              // this.duration = data.data.duration,
-              // this.alert = data.data.alert
-              window.localStorage.setItem("alarms",data.data.time);
-          });
+    //   let option = {
+    //     headers: this.headers
+    //   }
+    //   let jsObject = { userId : this.userId , status : this.status}
+    //   jsonData = JSON.stringify(jsObject);
+    //   this.http.post(this.base_url+'timetogetpillow/showtimetogetpillow', jsonData, option)
+    //       .subscribe((data:any) => {
+    //           this.alarms = data.data;
+    //           // console.log(data);
+    //           // this.time = data.data.time,
+    //           // this.drug = data.data.drug,
+    //           // this.amount = data.data.amount,
+    //           // this.volume = data.data.volume,
+    //           // this.duration = data.data.duration,
+    //           // this.alert = data.data.alert
+    //           window.localStorage.setItem("alarms",data.data.time);
+          // });
           
     console.log('ionViewDidLoad DrungDisplayPage');
   }

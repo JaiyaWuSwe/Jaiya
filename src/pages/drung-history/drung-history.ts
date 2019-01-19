@@ -20,6 +20,7 @@ export class DrungHistoryPage {
   public userId;
   public time;
   public drug;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http : HttpClient,) {
@@ -33,7 +34,8 @@ export class DrungHistoryPage {
       let option = {
         headers: this.headers
       }
-      let jsObject = { userId : this.userId}
+      let jsObject = { userId : this.userId,
+      status: 3}
       jsonData = JSON.stringify(jsObject);
       this.http.post('http://localhost:8080/jaiya/api/timetogetpillow/showalltimtogetpillow', jsonData, option)
           .subscribe((data:any) => {

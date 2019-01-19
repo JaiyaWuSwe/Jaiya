@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams ,AlertController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
@@ -29,14 +29,17 @@ export class DrungDisplayPage {
     public _id;
     public status = 1;
     public test=[];
-    
+      // public base_url = "http://localhost:8080/jaiya/api/";
+      public base_url ='http://172.16.82.153:8080/jaiya/api/';
+
     
     
 
     constructor(public navCtrl: NavController, 
       public navParams: NavParams,
       public http : HttpClient,
-      public formbuilder:FormBuilder
+      public formbuilder:FormBuilder,
+      private alertCtrl: AlertController
       ) {
         
 
@@ -51,26 +54,46 @@ export class DrungDisplayPage {
         volume: ['',]
       }); 
 }
-// sendRequest(){
+goTo(_id) {
+  _id = _id || 'No hospital Entered';
+  let jsonData;
+      
 
-//   let jsonData;
+  let option = {
+    headers: this.headers
+  }
+  let jsObject = { userId : this.userId,
+                  _id : _id ,
+                    status : 2
+                  }
+  jsonData = JSON.stringify(jsObject);
+  this.http.post(this.base_url+'timetogetpillow/changestatus', jsonData, option)
+      .subscribe((data:any) => {
+        console.log(data);
+              if(data.message == true  ){ 
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกสำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(DrungDisplayPage);
+              
+              }
+              else{
+                
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกไม่สำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(DrungDisplayPage);
+              } 
+           
+      });
   
-//   let option = {
-//     headers: this.headers
-//   }
-//   // // Create JSON object from username & email
-//   let jsObject = { time: this.time,
-//                   drug: this.drug,
-//                   amount: this.amount
-                  
-//                 }
-//   jsonData = JSON.stringify(jsObject);
-
-//   this.http.post('http://localhost:8080/jaiya/api/timetogetpillow/insert', jsonData, option)
-//       .subscribe((data:any) => {  
-//         console.log(data);
-//       });
-//     }
+}
 
   ionViewDidLoad() {
     this.userId= window.localStorage.getItem('userId');
@@ -82,22 +105,11 @@ export class DrungDisplayPage {
       }
       let jsObject = { userId : this.userId , status : this.status}
       jsonData = JSON.stringify(jsObject);
-      this.http.post('http://localhost:8080/jaiya/api/timetogetpillow/showtimetogetpillow', jsonData, option)
+      this.http.post(this.base_url+'timetogetpillow/showtimetogetpillow', jsonData, option)
           .subscribe((data:any) => {
-          // console.log(data);
-          //   let list = data.filter((t)=>t.time);
+        
               this.test = data.data;
-              // console.log(data);
-              // this.time = data.data.time,
-              // this.drug = data.data.drug,
-              // this.amount = data.data.amount,
-              // this.volume = data.data.volume,
-              // this.duration = data.data.duration,
-              // this.alert = data.data.alert
-            
-            
-            // console.log(list);
-            // console.log(this.data);
+              
           });
     console.log('ionViewDidLoad DrungDisplayPage');
   }

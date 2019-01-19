@@ -1,3 +1,4 @@
+import { TestPage } from './../pages/test/test';
 import { MapSearchPage } from './../pages/map-search/map-search';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { MapDisplayPage } from './../pages/map-display/map-display';
@@ -42,7 +43,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     RegisterPage,
     FirstpagePage,
     MapDisplayPage,
-    MapSearchPage
+    MapSearchPage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     RegisterPage,
     FirstpagePage,
     MapDisplayPage,
-    MapSearchPage
+    MapSearchPage,
+    TestPage
   ],
   providers: [
     StatusBar,

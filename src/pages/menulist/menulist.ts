@@ -1,3 +1,4 @@
+import { MapSearchPage } from './../map-search/map-search';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController,App } from 'ionic-angular';
 import { FirstpagePage } from '../firstpage/firstpage';
@@ -53,9 +54,12 @@ export class MenulistPage {
     this.navCtrl.setRoot(DrungHistoryPage);
   }
   // ค้นหาโรงพยาบาล 
-  // hospital(){
-  
-  // }
+  hospital(){
+    this.navCtrl.setRoot(MapSearchPage);
+  }
+  watch(){
+    this.navCtrl.setRoot(DrungDisplayPage);
+  }
   ionViewDidLoad() {
     
     this.userId = window.localStorage.getItem('userId');
