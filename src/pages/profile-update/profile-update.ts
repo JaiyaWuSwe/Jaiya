@@ -27,7 +27,8 @@ export class ProfileUpdatePage {
     public gender;
     public userId;
     public _id;
-    
+    public base_url ='http://172.16.82.72:8080/jaiya/api/';
+    // public base_url = 'http://localhost:8080/jaiya/api/'
 
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
@@ -73,7 +74,7 @@ export class ProfileUpdatePage {
                       }
         jsonData = JSON.stringify(jsObject);
     
-        this.http.post('http://localhost:8080/jaiya/api/UserData/update', jsonData, option)
+        this.http.post(this.base_url+'UserData/update', jsonData, option)
             .subscribe((data:any) => {  
               if(data.message == true  ){ 
                 let alert = this.alertCtrl.create({
@@ -110,7 +111,7 @@ export class ProfileUpdatePage {
       let jsObject = { userId : this.userId}
       jsonData = JSON.stringify(jsObject);
   
-      this.http.post('http://localhost:8080/jaiya/api/UserData/findOne', jsonData, option)
+      this.http.post(this.base_url+'UserData/findOne', jsonData, option)
           .subscribe((data:any) => {
             if(data.message == true){
               this.firstName = data.data.firstName,

@@ -1,3 +1,6 @@
+import { MapSearchPage } from './../map-search/map-search';
+import { DrungHistoryPage } from './../drung-history/drung-history';
+import { DrungDisplayPage } from './../drung-display/drung-display';
 import { FirstpagePage } from './../firstpage/firstpage';
 import { Component, ViewChild  } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav ,App,AlertController} from 'ionic-angular';
@@ -26,7 +29,6 @@ import { ProfileDisplayPage } from '../profile-display/profile-display';
 export class MenuPage {
   rootPage: any;
   pages = [];
-  // Reference to the side menus root nav
   @ViewChild(Nav) nav: Nav;
   constructor(public navCtrl: NavController, public navParams: NavParams, public appCtrl: App,
     public storage: Storage,private alertCtrl: AlertController ) {
@@ -34,11 +36,11 @@ export class MenuPage {
  
   ionViewWillEnter() {
     this.pages = [
-      { title: 'กรอกข้อมูล', page: ProfileCreatePage, icon: 'home' },
-      { title: 'ผู้ใช้', page: ProfileDisplayPage, icon: 'planet' },
-      { title: 'เมนู', page: MenulistPage, icon: 'planet' },
-      { title: 'แจ้งเตือน', page: DrungCreatePage, icon: 'planet' },
-      { title: 'แก้ไขข้อมูลผู้ใช้', page: ProfileUpdatePage, icon: 'planet' }
+      { title: 'บัญชีผู้ใช้', page: ProfileCreatePage, icon: 'home' },
+      { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'planet' },
+      { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'home' },
+      { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'planet' },
+      { title: 'ค้นหาโรงพยาบาล', page: MapSearchPage, icon: 'planet' }
       
     ];
     this.openPage(MenulistPage);

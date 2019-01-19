@@ -26,7 +26,8 @@ export class ProfileCreatePage {
     public gender;
     public userId;
     public number;
-    public base_url ='http://localhost:8080/jaiya/api';
+    // public base_url ='http://localhost:8080/jaiya/api/';
+    public base_url ='http://172.16.82.72:8080/jaiya/api/';
 
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
@@ -88,7 +89,7 @@ export class ProfileCreatePage {
                       }
         jsonData = JSON.stringify(jsObject);
     
-        this.http.post(this.base_url+'/UserData/insert', jsonData, option)
+        this.http.post(this.base_url+'UserData/insert', jsonData, option)
             .subscribe((data:any) => {  
               if(data.message == true  ){ 
                 let alert = this.alertCtrl.create({

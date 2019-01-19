@@ -27,10 +27,10 @@ export class DrungDisplayPage {
     public alert;
     public userId;
     public _id;
-    public status = 1;
+    public status ;
     public test=[];
-      public base_url = "http://localhost:8080/jaiya/api/";
-      // public base_url ='http://172.16.82.72:8080/jaiya/api/';
+      // public base_url = "http://localhost:8080/jaiya/api/";
+      public base_url ='http://172.16.82.72:8080/jaiya/api/';
 
     
     
@@ -109,8 +109,8 @@ Delete(_id) {
   jsonData = JSON.stringify(jsObject);
 
   
-  this.http.get(this.base_url+"timetogetpillow/delete/?"+"_id"+"="+_id, option).subscribe((data:any) => {
-    console.log(data);
+  this.http.post(this.base_url+"timetogetpillow/delete",jsonData, option).subscribe((data:any) => {
+    
           if(data.message == true  ){ 
             let alert = this.alertCtrl.create({
               title: 'ลบ',
@@ -147,7 +147,7 @@ Delete(_id) {
       }
       let jsObject = { userId : this.userId , status : this.status}
       jsonData = JSON.stringify(jsObject);
-      this.http.post(this.base_url+'timetogetpillow/showtimetogetpillow', jsonData, option)
+      this.http.post(this.base_url+'timetogetpillow/showalltimtogetpillow', jsonData, option)
           .subscribe((data:any) => {
         
               this.test = data.data;

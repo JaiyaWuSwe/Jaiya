@@ -21,7 +21,8 @@ export class RegisterPage {
   public password;
   public email;
   public tell;
-  
+  public base_url ='http://172.16.82.72:8080/jaiya/api/';
+  // public base_url = 'http://localhost:8080/jaiya/api/'
   
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -101,7 +102,7 @@ export class RegisterPage {
                   }
     jsonData = JSON.stringify(jsObject);
 
-    this.http.post('http://localhost:8080/jaiya/api/Register/insert', jsonData, option)
+    this.http.post(this.base_url+'Register/insert', jsonData, option)
         .subscribe((data:any) => {
           
           console.log(data);
@@ -125,19 +126,7 @@ export class RegisterPage {
             alert.present();
             this.navCtrl.setRoot(RegisterPage);
           }
-          // if(data = true ){
-          //   this.dialogs.alert('Hello world')
-          //     .then(() => console.log('Dialog dismissed'))
-          //     .catch(e => console.log('Error displaying dialog', e));
-          //   this.dialogs.alert('เสร็จสมบูรณ์','สมัครสมาชิก')
-          //   .then(() => console.log('Dialog dismissed'))
-            
-          // }
-          // else{
-          //   this.dialogs.alert('Hello world')
-          //     .then(() => console.log('Dialog dismissed'))
-          // }
-          
+         
           
         });
 

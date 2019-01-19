@@ -78,7 +78,7 @@ export class MenulistPage {
     localStorage.removeItem("username");
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
-    this.appCtrl.getRootNav().setRoot(LoginPage);
+    this.appCtrl.getRootNav().setRoot(FirstpagePage);
   }
 
 

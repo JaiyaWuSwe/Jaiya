@@ -36,7 +36,7 @@ export class MapDisplayPage {
   map: GoogleMap;
   hospital: string;
   // public base_url ='http://localhost:8080/jaiya/api/';
-  public base_url ='http://172.16.82.153:8080/jaiya/api/';
+  public base_url ='http://172.16.82.72:8080/jaiya/api/';
   
   constructor(private geolocation: Geolocation ,  public toastCtrl: ToastController, public navParams: NavParams
     ,public http : HttpClient,public navCtrl: NavController, private alertCtrl: AlertController) { 
@@ -58,7 +58,7 @@ export class MapDisplayPage {
 
       let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
       let toast = this.toastCtrl.create({
-        message: this.lat,
+        message: "กำลังดำเนินการ",
         duration: 3000,
       });
       toast.present();
@@ -86,7 +86,7 @@ export class MapDisplayPage {
     this.map = GoogleMaps.create('map_canvas', mapOptions);
     let marker: Marker = this.map.addMarkerSync({
       title: 'ตำแหน่งของฉัน',
-      icon: 'blue',
+      icon: 'yellow',
       animation: 'DROP',
       position: {
         lat:this.lat,
@@ -134,7 +134,7 @@ export class MapDisplayPage {
             }else{
               var datasearch = data.datasearch;
               Object.keys(datasearch).forEach(key=> {
-                // console.log(datasearch[key].latitude);   
+              
                var d = getDistanceFromLatLonInKm(this.lat,this.lng,datasearch[key].latitude,datasearch[key].longitude,datasearch[key].name);
                 
                if( d <= 50){

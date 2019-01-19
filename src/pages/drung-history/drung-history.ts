@@ -38,7 +38,7 @@ export class DrungHistoryPage {
       let jsObject = { userId : this.userId,
       status: 3}
       jsonData = JSON.stringify(jsObject);
-      this.http.post(this.base_url+'timetogetpillow/showalltimtogetpillow', jsonData, option)
+      this.http.post(this.base_url+'timetogetpillow/history', jsonData, option)
           .subscribe((data:any) => {
             this.test = data.data;
            
