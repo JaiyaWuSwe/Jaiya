@@ -26,7 +26,7 @@
                   </div>
                 </ng-container>
             </div>
-           <!-- <ion-item>
+         <ion-item>
               <ion-label  floating color="primary">ชื่อยา</ion-label>
               <ion-input type="text" formControlName="drug" [(ngModel)]="drug"></ion-input>
             </ion-item>
@@ -37,22 +37,22 @@
                   </div>
                 </ng-container>
             </div>
-            <ion-item>
+            <!-- <ion-item>
                 <ion-label color="primary">จำนวน</ion-label>
                 <ion-input type="text" placeholder="จำนวน" formControlName="amount" [(ngModel)]="amount"></ion-input>
                 <ion-select formControlName="volume" [(ngModel)]="volume">
                     <ion-option value="1">เม็ด</ion-option>
                     <ion-option value="2">ช้อนชา</ion-option>
                 </ion-select>
-            </ion-item>
+            </ion-item> -->
             <ion-item>
                 <ion-label floating color="primary">ช่วงเวลา</ion-label>
                 <ion-select formControlName="duration" [(ngModel)]="duration">
-                    <ion-option value="1">ก่อนอาหาร</ion-option>
-                    <ion-option value="2">หลังอาหาร</ion-option>
+                    <ion-option value="ก่อนอาหาร">ก่อนอาหาร</ion-option>
+                    <ion-option value="หลังอาหาร">หลังอาหาร</ion-option>
                 </ion-select>
             </ion-item>
-            <div class="validation-errors">
+            <!-- <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.duration">
                   <div class="error-message" *ngIf="formgroup.get('duration').hasError(validation.type) && (formgroup.get('duration').dirty || formgroup.get('duration').touched)">
                     {{ validation.message }}

@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { FirstpagePage } from './../firstpage/firstpage';
+import { Component, ViewChild  } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav ,App,AlertController} from 'ionic-angular';
 import { MenulistPage } from '../menulist/menulist';
 import { Storage } from '@ionic/storage';
@@ -28,9 +29,9 @@ export class MenuPage {
   // Reference to the side menus root nav
   @ViewChild(Nav) nav: Nav;
   constructor(public navCtrl: NavController, public navParams: NavParams, public appCtrl: App,
-    public storage: Storage,private alertCtrl: AlertController) {
+    public storage: Storage,private alertCtrl: AlertController ) {
   }
-
+ 
   ionViewWillEnter() {
     this.pages = [
       { title: 'กรอกข้อมูล', page: ProfileCreatePage, icon: 'home' },
@@ -57,7 +58,7 @@ export class MenuPage {
     localStorage.removeItem("username");
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
-    this.appCtrl.getRootNav().setRoot(LoginPage);
+    this.appCtrl.getRootNav().setRoot(FirstpagePage);
   }
-
+  
 }

@@ -23,6 +23,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'menulist.html',
 })
 export class MenulistPage {
+ 
   public number;
   public headers = new HttpHeaders().set("Content-Type","application/json");
   public userId;
@@ -32,6 +33,8 @@ export class MenulistPage {
     public storage: Storage,
     public http : HttpClient,private alertCtrl: AlertController, public appCtrl: App) {
   }
+
+  
   //  ตั้งค่า
   setting() {
     this.navCtrl.setRoot(FirstpagePage);

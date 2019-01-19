@@ -41,7 +41,6 @@ export class ProfileCreatePage {
             firstName:['',Validators.required],
             lastName :['',Validators.required],
             disease  :['',],
-            machineName : ['',],
             bloodType : ['',Validators.required],
             drung :['',],
             date : ['',Validators.required] ,
@@ -77,6 +76,13 @@ export class ProfileCreatePage {
         }
         // // Create JSON object from username & email
         let jsObject = { 
+            userId: this.userId,
+            firstName :this.firstName,
+            lastName : this.lastName,
+            date : this.date,
+            gender : this.gender,
+            bloodType : this.bloodType,
+            disease : this.disease
                         
                       
                       }
@@ -84,8 +90,6 @@ export class ProfileCreatePage {
     
         this.http.post(this.base_url+'/UserData/insert', jsonData, option)
             .subscribe((data:any) => {  
-
-              console.log(data);
               if(data.message == true  ){ 
                 let alert = this.alertCtrl.create({
                   title: 'บันทึก',
@@ -110,7 +114,7 @@ export class ProfileCreatePage {
     
       }
       ionViewDidLoad() {
-
+        this.userId= window.localStorage.getItem('userId');
         console.log('ionViewDidLoad ProfileCreatePage');
   }
 

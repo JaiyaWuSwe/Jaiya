@@ -19,8 +19,20 @@
  
         <ion-list>
             <ion-item *ngFor="let t of test">
-              <p>เวลา</p>  {{t.time}}  <br>
-              <p>ยา</p>  {{t.drug}} 
+                <ion-card-content>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-8 >
+                              <p>เวลา</p>  {{t.time}}  <br>
+                              <p>ยา</p>  {{t.drug}} 
+                              <p>ช่วงเวลา</p> {{t.duration}}
+                            </ion-col>
+                            <ion-col col-4>
+                                <ion-img  src="../assets/imgs/checked.png"></ion-img>
+                            </ion-col> 
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
             </ion-item>
 
         </ion-list>

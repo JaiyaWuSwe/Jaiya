@@ -12,13 +12,21 @@
  
   <ion-list>
       <ion-item class="bg" *ngFor="let t of test">
+        <ion-grid>
+          <ion-row>
+              <ion-col col-7 >
+            <p>เวลา </p> {{t.time}}  <br>
+            <p>ยา </p> {{t.drug}} <br>
+            {{t.duration}}
+          </ion-col>
+          <ion-col col-5>
           
-            <p>เวลา </p> {{t.time}} {{t._id}} <br>
-            <p>ยา </p> {{t.drug}}  {{t.amount}}  {{t.volume}} {{t.duration}}
-          <ion-item class="bg">
-              <!-- <ion-toggle checked="false"></ion-toggle> -->
-              <button ion-button color="secondary" (click)="goTo(t._id)">ค้นหาโรงพยาบาล</button>
-          </ion-item>
+              <button ion-button round  color ="secondary" (click)="goTo(t._id)"> <ion-icon name="md-checkmark"></ion-icon>กดรับยา</button><br>
+              <button ion-button round  color ="danger" (click)="Delete(t._id)"> <ion-icon name="md-close"></ion-icon>ลบแจ้งเตือน</button>
+          
+        </ion-col> 
+      </ion-row>
+  </ion-grid>
           
       </ion-item>
   </ion-list>

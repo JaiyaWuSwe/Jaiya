@@ -56,34 +56,8 @@ constructor(public navCtrl: NavController,
   
 }
 
-
-
-
-// sendRequest(){
-
-//   let jsonData;
-  
-//   let option = {
-//     headers: this.headers
-//   }
-  
-//   // // Create JSON object from username & email
-//   let jsObject = { userId : this.userId
-                
-//                 }
-//   jsonData = JSON.stringify(jsObject);
-
-//   this.http.post('http://localhost:8080/jaiya/api/UserData/findOne', jsonData, option)
-//       .subscribe((data:any) => {
-        
-//         console.log(data);
-               
-//       });
-  
-//     }
-
   ionViewDidLoad() {
-    // this.userId = this.navParams.get(this.userId);
+ 
     
     this.userId= window.localStorage.getItem('userId');
     let jsonData;
@@ -104,7 +78,8 @@ constructor(public navCtrl: NavController,
             this.disease = data.data.disease,
             this.bloodType = data.data.bloodType,
             this.machineName = data.data.machineName,
-            this._id = data.data._id
+            this._id = data.data._id,
+            this.gender = data.data.gender;
           }
           else{
             let alert = this.alertCtrl.create({

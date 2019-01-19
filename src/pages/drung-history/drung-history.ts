@@ -20,7 +20,8 @@ export class DrungHistoryPage {
   public userId;
   public time;
   public drug;
-  
+  public duration = "";
+  public base_url ='http://172.16.82.72:8080/jaiya/api/';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http : HttpClient,) {
@@ -37,10 +38,12 @@ export class DrungHistoryPage {
       let jsObject = { userId : this.userId,
       status: 3}
       jsonData = JSON.stringify(jsObject);
-      this.http.post('http://localhost:8080/jaiya/api/timetogetpillow/showalltimtogetpillow', jsonData, option)
+      this.http.post(this.base_url+'timetogetpillow/showalltimtogetpillow', jsonData, option)
           .subscribe((data:any) => {
             this.test = data.data;
+           
           });
+         
     console.log('ionViewDidLoad DrungHistoryPage');
   }
 

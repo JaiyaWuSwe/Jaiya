@@ -1,15 +1,11 @@
+import { MenulistPage } from './../menulist/menulist';
+
+import { ProfileDisplayPage } from './../profile-display/profile-display';
 import { Component } from '@angular/core';
-import { NavController, NavParams, } from 'ionic-angular';
+import { NavController, NavParams,AlertController } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { ProfileDisplayPage } from '../profile-display/profile-display';AlertController
 
-/**
- * Generated class for the ProfileUpdatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 export const headers = new HttpHeaders().set("X-CustomHeader", "custom header value");
 @Component({
@@ -38,28 +34,23 @@ export class ProfileUpdatePage {
         public http : HttpClient,
         public formbuilder:FormBuilder,
         // public storage: Storage,
-        // private alertCtrl: AlertController
+        private alertCtrl: AlertController
        ) {
         
         this.formgroup = formbuilder.group({
        
             firstName:['',],
             lastName :['',],
-            disease  :['',Validators.required],
+            disease  :['',],
             machineName : ['',],
             bloodType : ['',],
-            drung :['',Validators.required],
+            drung :['',],
             date : ['',] ,
             gender :['',]
         }); 
     }
       validation_messages = {
-        'disease': [
-          { type: 'required', message: 'กรอกโรคประจำตัว' }
-        ],
-        'drung':[
-          {type : 'required', message : 'กรอกยาที่แพ้'}
-        ]
+        
 
         
       }
@@ -84,8 +75,27 @@ export class ProfileUpdatePage {
     
         this.http.post('http://localhost:8080/jaiya/api/UserData/update', jsonData, option)
             .subscribe((data:any) => {  
-
-              console.log(data);
+              if(data.message == true  ){ 
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกสำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(ProfileDisplayPage);
+              
+              }
+              else{
+                
+                let alert = this.alertCtrl.create({
+                  title: 'บันทึก',
+                  message: 'บันทึกไม่สำเร็จ',
+                  buttons: ['ตกลง']
+                });
+                alert.present();
+                this.navCtrl.setRoot(MenulistPage);
+              } 
+              
             });
           }
 
@@ -110,14 +120,12 @@ export class ProfileUpdatePage {
               this.disease = data.data.disease,
               this.bloodType = data.data.bloodType,
               this.machineName = data.data.machineName,
-              this._id = data.data._id
+              this._id = data.data._id,
+              this.gender = data.data.gender
             }
             console.log(data);        
           });
-          
 
-      // console.log(this._id);
-    // this.userId= window.localStorage.getItem('userId');
     console.log('ionViewDidLoad ProfileUpdatePage');
   }
 

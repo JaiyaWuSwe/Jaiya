@@ -38,7 +38,7 @@ export class DrungCreatePage {
     public userId;
     
     // public base_url = "http://localhost:8080/jaiya/api/";
-    public base_url ='http://172.16.82.153:8080/jaiya/api/';
+    public base_url ='http://172.16.82.72:8080/jaiya/api/';
     data = { time:'' };
   constructor(public navCtrl: NavController, 
         public navParams: NavParams,
@@ -53,10 +53,8 @@ export class DrungCreatePage {
         
         this.formgroup = formbuilder.group({
           notifyTime:['',Validators.required],
-          // drug :['',Validators.required],
-          // amount  :['',],
-          // volume : ['',],
-          // duration : ['',Validators.required],
+          drug :['',Validators.required],
+          duration : ['',],
           // alert :['',]
         }); 
 
@@ -66,12 +64,12 @@ export class DrungCreatePage {
     'notifyTime': [
       { type: 'required', message: 'กรอกเวลา' }
     ],
-    // 'drug':[
-    //   {type : 'required', message : 'กรอกยา'}
-    // ],
-    // 'duration':[
-    //   {type: 'requried', message : 'เลือกช่วงเวลา'}
-    // ]
+    'drug':[
+      {type : 'required', message : 'กรอกยา'}
+    ],
+    'duration':[
+      {type: 'requried', message : 'เลือกช่วงเวลา'}
+    ]
   }
 
   

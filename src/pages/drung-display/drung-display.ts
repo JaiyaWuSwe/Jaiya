@@ -29,8 +29,8 @@ export class DrungDisplayPage {
     public _id;
     public status = 1;
     public test=[];
-      // public base_url = "http://localhost:8080/jaiya/api/";
-      public base_url ='http://172.16.82.153:8080/jaiya/api/';
+      public base_url = "http://localhost:8080/jaiya/api/";
+      // public base_url ='http://172.16.82.72:8080/jaiya/api/';
 
     
     
@@ -92,6 +92,48 @@ goTo(_id) {
               } 
            
       });
+  
+}
+Delete(_id) {
+  _id = _id || 'No hospital Entered';
+  let jsonData;
+      
+
+  let option = {
+    headers: this.headers
+  }
+  let jsObject = { 
+                  _id : _id ,
+                    
+                  }
+  jsonData = JSON.stringify(jsObject);
+
+  
+  this.http.get(this.base_url+"timetogetpillow/delete/?"+"_id"+"="+_id, option).subscribe((data:any) => {
+    console.log(data);
+          if(data.message == true  ){ 
+            let alert = this.alertCtrl.create({
+              title: 'ลบ',
+              message: 'ลบสำเร็จ',
+              buttons: ['ตกลง']
+            });
+            alert.present();
+            this.navCtrl.setRoot(DrungDisplayPage);
+          
+          }
+          else{
+            
+            let alert = this.alertCtrl.create({
+              title: 'บันทึก',
+              message: 'ลบไม่สำเร็จ',
+              buttons: ['ตกลง']
+            });
+            alert.present();
+            this.navCtrl.setRoot(DrungDisplayPage);
+          } 
+       
+  });
+        
   
 }
 
