@@ -156,9 +156,9 @@ export class DrungCreatePage {
           text: "ชื่ออยา"+this.drug+"เวลา"+this.notifyTime,
            trigger: {at: new Date(new Date().getTime()+this.time)},
           led: 'FF0000',
-          sound: 'file://assets/sound/Atom.mp3'
+          sound: 'file://assets/sound/Atom.mp3',
       });
-
+      
       //ตั้งเวลาซ้ำเป็น ทุุกชั่วโมง ทุกวัน
       switch(this.alertAgain){
         // 30 min

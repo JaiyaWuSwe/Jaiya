@@ -159,4 +159,5 @@ Delete(_id) {
 }
 
 
-// เวลาที่ตั้ง + วัน  = id
+// เวลาที่ตั้ง + วัน  = id  แก้ไข function in java     
+// timealert again = ex 18.00    alert agian 6hr. 
