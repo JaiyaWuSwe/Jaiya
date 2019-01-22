@@ -36,9 +36,10 @@ export class DrungCreatePage {
     public duration;
     public alert;
     public userId;
+    public alertAgain;
     
     // public base_url = "http://localhost:8080/jaiya/api/";
-    public base_url ='http://172.16.82.72:8080/jaiya/api/';
+    public base_url ='http://172.16.0.207:8080/jaiya/api/';
     data = { time:'' };
   constructor(public navCtrl: NavController, 
         public navParams: NavParams,
@@ -157,10 +158,23 @@ export class DrungCreatePage {
           led: 'FF0000',
           sound: 'file://assets/sound/Atom.mp3'
       });
+
+      //ตั้งเวลาซ้ำเป็น ทุุกชั่วโมง ทุกวัน
+      switch(this.alertAgain){
+        // 30 min
+        case 1 : this.time = this.time + (60000*30);
+        this.createAlert(this.time,this.drug,this.userId,this.alertAgain);
+
+      }
+      
       
     }
     ionViewDidLoad() {
       this.userId= window.localStorage.getItem('userId');
       console.log('ionViewDidLoad ProfileCreatePage');
+    }
+
+    createAlert(time,drug,userId,alertAgain){
+
     }
 }

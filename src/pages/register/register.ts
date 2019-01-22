@@ -22,7 +22,7 @@ export class RegisterPage {
   public password;
   public email;
   public tell;
-  public base_url ='http://172.16.82.72:8080/jaiya/api/';
+  public base_url ='http://172.16.0.207:8080/jaiya/api/';
   // public base_url = 'http://localhost:8080/jaiya/api/'
   
   constructor(public navCtrl: NavController,
