@@ -34,7 +34,7 @@ export class DrungCreatePage {
     public amount;
     public volume;
     public duration;
-    public alert;
+    public alertId;
     public userId;
     public alertAgain;
     
@@ -76,7 +76,12 @@ export class DrungCreatePage {
   
 
   sendRequest(){
-
+    var hourStart = new Date().getHours();  //a
+    var minunStart = new Date().getMinutes(); //b
+    var secound = new Date().getSeconds();
+    var hour = this.notifyTime.substr(0,2); //c
+    var minus = this.notifyTime.substr(3); //d  
+    this.alertId = new Date();
     let jsonData;
     
     let option = {
@@ -84,6 +89,7 @@ export class DrungCreatePage {
     }
     // // Create JSON object from username & email
     let jsObject = { 
+        alertId:this.alertId,
         userId: this.userId, 
         time: this.notifyTime, 
         drug:this.drug,
@@ -118,11 +124,7 @@ export class DrungCreatePage {
             });
           
 
-            var hourStart = new Date().getHours();  //a
-            var minunStart = new Date().getMinutes(); //b
-            var secound = new Date().getSeconds();
-            var hour = this.notifyTime.substr(0,2); //c
-            var minus = this.notifyTime.substr(3); //d  
+            
             
            
             
@@ -160,12 +162,12 @@ export class DrungCreatePage {
       });
       
       //ตั้งเวลาซ้ำเป็น ทุุกชั่วโมง ทุกวัน
-      switch(this.alertAgain){
-        // 30 min
-        case 1 : this.time = this.time + (60000*30);
-        this.createAlert(this.time,this.drug,this.userId,this.alertAgain);
+      // switch(this.alertAgain){
+      //   // 30 min
+      //   case 1 : this.time = this.time + (60000*30);
+      //   this.createAlert(this.time,this.drug,this.userId,this.alertAgain);
 
-      }
+      // }
       
       
     }
