@@ -1,3 +1,6 @@
+import { HelpPage } from './../pages/help/help';
+import { MachineDisplayPage } from './../pages/machine-display/machine-display';
+import { MachineSearchPage } from './../pages/machine-search/machine-search';
 import { TestPage } from './../pages/test/test';
 import { MapSearchPage } from './../pages/map-search/map-search';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
@@ -44,7 +47,10 @@ import { Geolocation } from '@ionic-native/geolocation';
     FirstpagePage,
     MapDisplayPage,
     MapSearchPage,
-    TestPage
+    TestPage,
+    MachineSearchPage,
+    MachineDisplayPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +75,10 @@ import { Geolocation } from '@ionic-native/geolocation';
     FirstpagePage,
     MapDisplayPage,
     MapSearchPage,
-    TestPage
+    TestPage,
+    MapDisplayPage,
+    MachineSearchPage,MachineDisplayPage,
+    HelpPage
   ],
   providers: [
     StatusBar,

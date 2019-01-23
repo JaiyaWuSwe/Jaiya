@@ -36,7 +36,7 @@ export class MapDisplayPage {
   map: GoogleMap;
   hospital: string;
   // public base_url ='http://localhost:8080/jaiya/api/';
-  public base_url ='http://172.16.0.207:8080/jaiya/api/';
+     public base_url ='http://202.183.198.114:8080/jaiya/api/';
   public distance1;
   
   

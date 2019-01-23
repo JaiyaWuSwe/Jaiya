@@ -21,7 +21,7 @@ export class DrungHistoryPage {
   public time;
   public drug;
   public duration = "";
-  public base_url ='http://172.16.0.207:8080/jaiya/api/';
+     public base_url ='http://202.183.198.114:8080/jaiya/api/';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http : HttpClient,) {

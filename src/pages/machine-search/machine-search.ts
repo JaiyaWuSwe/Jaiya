@@ -26,8 +26,9 @@ export class MachineSearchPage {
   public status;
   
   // public userId;
-  public base_url ='http://172.16.240.209/jaiya/api/';
+  // public base_url ='http://172.16.240.209/jaiya/api/';
   // public base_url ='http://localhost:8080/jaiya/api/';
+   public base_url ='http://202.183.198.114:8080/jaiya/api/';
 
   
 

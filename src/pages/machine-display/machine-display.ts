@@ -36,7 +36,9 @@ export class MachineDisplayPage {
   // hospital: string;
   name: string;
   // public base_url ='http://localhost:8080/jaiya/api/';
-  public base_url ='http://172.16.240.209/jaiya/api/';
+  // public base_url ='http://172.16.240.209/jaiya/api/';
+  public base_url ='http://202.183.198.114:8080/jaiya/api/';
+  
   constructor(private geolocation: Geolocation ,  
     public toastCtrl: ToastController, 
     public navParams: NavParams
@@ -87,21 +89,12 @@ export class MachineDisplayPage {
       }
     });
   }
-    addMarker(hoslat,hoslng,name){
-      let marker1: Marker = this.map.addMarkerSync({
-        title: name,
-        icon: 'blue',
-        animation: 'DROP',
-        position: {
-          lat:hoslat,
-          lng:hoslng
-        }
-      });
     
-  }
+  
 
   sendRequest(){
 
+    
     let jsonData;
     
     let option = {
@@ -115,14 +108,24 @@ export class MachineDisplayPage {
     this.http.post(this.base_url+'machine/showallmachine', jsonData, option)
         .subscribe((data:any) => { 
           if(data.message == true ){ 
-            if(data.data){
+
               var hoslat = data.data.latitude;
               var hoslng = data.data.longitude;
               var name = data.data.name;
-              this.addMarker(hoslat,hoslng,name);
               
-            }
-          }
+              
+                let marker1: Marker = this.map.addMarkerSync({
+                  title: name,
+                  icon: 'blue',
+                  animation: 'DROP',
+                  position: {
+                    lat:hoslat,
+                    lng:hoslng
+                  }
+                });
+              
+
+              }
         });
       
       }
