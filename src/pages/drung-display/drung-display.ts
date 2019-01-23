@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 export const headers = new HttpHeaders().set("X-CustomHeader", "custom header value");
 @Component({
   selector: 'page-drung-display',
@@ -29,6 +29,7 @@ export class DrungDisplayPage {
     public _id;
     public status ;
     public test=[];
+    public alertId;
       // public base_url = "http://localhost:8080/jaiya/api/";
       public base_url ='http://172.16.0.207:8080/jaiya/api/';
 
@@ -39,7 +40,7 @@ export class DrungDisplayPage {
       public navParams: NavParams,
       public http : HttpClient,
       public formbuilder:FormBuilder,
-      private alertCtrl: AlertController
+      private alertCtrl: AlertController,private localNotifications: LocalNotifications
       ) {
         
 
@@ -112,6 +113,7 @@ Delete(_id) {
   this.http.post(this.base_url+"timetogetpillow/delete",jsonData, option).subscribe((data:any) => {
     
           if(data.message == true  ){ 
+            this.localNotifications.clear(this.alertId);
             let alert = this.alertCtrl.create({
               title: 'ลบ',
               message: 'ลบสำเร็จ',
