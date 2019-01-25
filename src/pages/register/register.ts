@@ -111,7 +111,7 @@ export class RegisterPage {
             let alert = this.alertCtrl.create({
               title: 'สมัครสมาชิก',
               message: 'สมัครสมาชิกสำเร็จ',
-              // buttons: ['OK']
+              buttons: ['OK']
             });
             alert.present();
             this.navCtrl.push(LoginPage, {});

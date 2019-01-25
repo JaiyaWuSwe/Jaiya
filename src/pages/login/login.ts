@@ -70,22 +70,25 @@ export class LoginPage {
     this.http.post(this.base_url+'login/login', jsonData, option)
         .subscribe((data:any) => {
           if(data.message == true  ){
-            window.localStorage.setItem("userId",data.data._id);
-            window.localStorage.setItem("username",data.data.username);
+            
             window.localStorage.setItem("role",data.data.role);
-            if(this.role == 1){
+            if(data.data.role == 1){
+              window.localStorage.setItem("userId",data.data._id);
+              window.localStorage.setItem("username",data.data.username);
               let alert = this.alertCtrl.create({
                 title: 'ลงชื่อเข้าใช้',
-                message: 'ลงชื่อเข้าใช้สำเร็จ',
+                message: 'ลงชื่อเข้าใช้สำเร็จ ยินดีต้อนรับ '+data.data.username,
                 buttons: ['ตกลง']
               });
               alert.present();
               this.navCtrl.setRoot(MachineSearchPage);
             }
-            if(data.role == 2){
+            if(data.data.role == 2){
+              window.localStorage.setItem("userId",data.data._id);
+              window.localStorage.setItem("username",data.data.username);
               let alert = this.alertCtrl.create({
                 title: 'ลงชื่อเข้าใช้',
-                message: 'ลงชื่อเข้าใช้สำเร็จ',
+                message: 'ลงชื่อเข้าใช้สำเร็จ ยินดีต้อนรับ '+data.data.username,
                 buttons: ['ตกลง']
               });
               alert.present();
