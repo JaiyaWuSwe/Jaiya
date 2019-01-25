@@ -1,3 +1,4 @@
+import { MachineSearchPage } from './../machine-search/machine-search';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -72,13 +73,24 @@ export class LoginPage {
             window.localStorage.setItem("userId",data.data._id);
             window.localStorage.setItem("username",data.data.username);
             window.localStorage.setItem("role",data.data.role);
-            let alert = this.alertCtrl.create({
-              title: 'ลงชื่อเข้าใช้',
-              message: 'ลงชื่อเข้าใช้สำเร็จ',
-              buttons: ['ตกลง']
-            });
-            alert.present();
-            this.navCtrl.setRoot(MenuPage);
+            if(this.role == 1){
+              let alert = this.alertCtrl.create({
+                title: 'ลงชื่อเข้าใช้',
+                message: 'ลงชื่อเข้าใช้สำเร็จ',
+                buttons: ['ตกลง']
+              });
+              alert.present();
+              this.navCtrl.setRoot(MachineSearchPage);
+            }
+            if(data.role == 2){
+              let alert = this.alertCtrl.create({
+                title: 'ลงชื่อเข้าใช้',
+                message: 'ลงชื่อเข้าใช้สำเร็จ',
+                buttons: ['ตกลง']
+              });
+              alert.present();
+              this.navCtrl.setRoot(MenuPage);
+            }
           }
           else{
             let alert = this.alertCtrl.create({
@@ -95,29 +107,7 @@ export class LoginPage {
 
   }
   ionViewDidLoad() {
-    // console.log(this.base_url);
-    // this.userId= window.localStorage.getItem('userId');
-    //   let jsonData;
-      
-
-    //   let option = {
-    //     headers: this.headers
-    //   }
-    //   let jsObject = { userId : this.userId , status : this.status}
-    //   jsonData = JSON.stringify(jsObject);
-    //   this.http.post(this.base_url+'timetogetpillow/showtimetogetpillow', jsonData, option)
-    //       .subscribe((data:any) => {
-    //           this.alarms = data.data;
-    //           // console.log(data);
-    //           // this.time = data.data.time,
-    //           // this.drug = data.data.drug,
-    //           // this.amount = data.data.amount,
-    //           // this.volume = data.data.volume,
-    //           // this.duration = data.data.duration,
-    //           // this.alert = data.data.alert
-    //           window.localStorage.setItem("alarms",data.data.time);
-          // });
-          
+    
     console.log('ionViewDidLoad DrungDisplayPage');
   }
 
