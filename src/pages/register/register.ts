@@ -125,7 +125,7 @@ export class RegisterPage {
               buttons: ['OK']
             });
             alert.present();
-            this.navCtrl.push(LoginPage, {});
+            this.navCtrl.push(RegisterPage, {});
           }
          
           

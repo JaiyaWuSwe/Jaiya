@@ -1,3 +1,4 @@
+import { MenulistPage } from './../menulist/menulist';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, Menu } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -98,7 +99,7 @@ export class ProfileCreatePage {
                   buttons: ['ตกลง']
                 });
                 alert.present();
-                this.navCtrl.push(Menu, {});
+                this.navCtrl.push(MenulistPage, {});
               
               }
               else{

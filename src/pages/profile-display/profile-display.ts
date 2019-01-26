@@ -102,7 +102,7 @@ constructor(public navCtrl: NavController,
   editProfile(){
     this._id = this._id;
     console.log(this._id);
-    this.navCtrl.push(ProfileCreatePage, {});
+    this.navCtrl.push(ProfileUpdatePage, {});
     }
         
 

@@ -81,7 +81,7 @@ export class DrungCreatePage {
     var secound = new Date().getSeconds();
     var hour = this.notifyTime.substr(0,2); //c
     var minus = this.notifyTime.substr(3); //d  
-    this.alertId = new Date();
+    // this.alertId = new Date();
     let jsonData;
     
     let option = {
@@ -89,7 +89,7 @@ export class DrungCreatePage {
     }
     // // Create JSON object from username & email
     let jsObject = { 
-        alertId:this.alertId,
+        // alertId:this.alertId,
         userId: this.userId, 
         time: this.notifyTime, 
         drug:this.drug,
@@ -99,8 +99,6 @@ export class DrungCreatePage {
     jsonData = JSON.stringify(jsObject);
     this.http.post(this.base_url+'timetogetpillow/insert', jsonData, option)
             .subscribe((data:any) => {  
-
-              console.log(data);
               if(data.message == true  ){ 
                 let alert = this.alertCtrl.create({
                   title: 'บันทึก',
@@ -122,12 +120,7 @@ export class DrungCreatePage {
                 this.navCtrl.setRoot(DrungDisplayPage);
               } 
             });
-          
-
-            
-            
-           
-            
+ 
  
             if(hour == hourStart){
               if(parseInt(minus)>minunStart ){

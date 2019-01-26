@@ -36,7 +36,7 @@ export class MenuPage {
  
   ionViewWillEnter() {
     this.pages = [
-      { title: 'บัญชีผู้ใช้', page: ProfileCreatePage, icon: 'home' },
+      { title: 'บัญชีผู้ใช้', page: ProfileDisplayPage, icon: 'home' },
       { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'ios-alarm-outline' },
       { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'ios-alert-outline' },
       { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'ios-clipboard-outline' },
