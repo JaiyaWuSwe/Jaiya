@@ -57,6 +57,8 @@ export class DrungDisplayPage {
 }
 goTo(_id) {
   _id = _id || 'No hospital Entered';
+   var d = new Date();
+   var date = d.getDay()+"/"+d.getMonth+"/"+d.getFullYear+"  "+d.getHours+":"+d.getMinutes;
   let jsonData;
       
 
@@ -65,7 +67,8 @@ goTo(_id) {
   }
   let jsObject = { userId : this.userId,
                   _id : _id ,
-                    status : 2
+                    status : 2,
+                    date:date
                   }
   jsonData = JSON.stringify(jsObject);
   this.http.post(this.base_url+'timetogetpillow/changestatus', jsonData, option)
