@@ -3,13 +3,12 @@ import { DrungHistoryPage } from './../drung-history/drung-history';
 import { DrungDisplayPage } from './../drung-display/drung-display';
 import { FirstpagePage } from './../firstpage/firstpage';
 import { Component, ViewChild  } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav ,App,AlertController, Menu} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Nav ,App,AlertController} from 'ionic-angular';
 import { MenulistPage } from '../menulist/menulist';
 import { Storage } from '@ionic/storage';
-import { LoginPage } from '../login/login';
+
 import { DrungCreatePage } from '../drung-create/drung-create';
-import { ProfileCreatePage } from '../profile-create/profile-create';
-import { ProfileUpdatePage } from '../profile-update/profile-update';
+
 import { ProfileDisplayPage } from '../profile-display/profile-display';
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,ToastController,AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,ToastController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -44,7 +44,7 @@ export class MachineDisplayPage {
     public navParams: NavParams
     ,public http : HttpClient,
     public navCtrl: NavController,
-     private alertCtrl: AlertController) { 
+     ) { 
     this.name = navParams.get('data');
      }
 
@@ -52,7 +52,7 @@ export class MachineDisplayPage {
     this.geolocation.getCurrentPosition().then( pos => {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
-      let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
+      // let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
       let toast = this.toastCtrl.create({
         message: "กำลังดำเนินการ.........",
         duration: 3000,
@@ -79,15 +79,15 @@ export class MachineDisplayPage {
        }
     };
     this.map = GoogleMaps.create('map_canvas', mapOptions);
-    let marker: Marker = this.map.addMarkerSync({
-      title: name,
-      icon: 'green',
-      animation: 'DROP',
-      position: {
-        lat:this.lat,
-        lng:this.lng
-      }
-    });
+    // let marker: Marker = this.map.addMarkerSync({
+    //   title: name,
+    //   icon: 'green',
+    //   animation: 'DROP',
+    //   position: {
+    //     lat:this.lat,
+    //     lng:this.lng
+    //   }
+    // });
   }
     
   

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, ToastController ,NavParams, NavController, AlertController} from 'ionic-angular';
+import { IonicPage, ToastController ,NavParams, NavController} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {
   GoogleMaps,
   GoogleMap,
   GoogleMapOptions,
-  Marker,
-  GoogleMapsEvent
+  Marker
 } from '@ionic-native/google-maps';
 
 
@@ -41,7 +40,7 @@ export class MapDisplayPage {
   
   
   constructor(private geolocation: Geolocation ,  public toastCtrl: ToastController, public navParams: NavParams
-    ,public http : HttpClient,public navCtrl: NavController, private alertCtrl: AlertController) { 
+    ,public http : HttpClient,public navCtrl: NavController) { 
     this.hospital = navParams.get('data');
 
   }
@@ -58,7 +57,7 @@ export class MapDisplayPage {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
 
-      let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
+      // let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
       let toast = this.toastCtrl.create({
         message: "กำลังดำเนินการ.........",
         duration: 3000,

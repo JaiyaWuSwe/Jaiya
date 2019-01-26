@@ -8,7 +8,7 @@ import { DrungCreatePage } from '../drung-create/drung-create';
 import { ProfileDisplayPage } from '../profile-display/profile-display';
 import { DrungHistoryPage } from '../drung-history/drung-history';
 import { DrungDisplayPage } from '../drung-display/drung-display';
-import { LoginPage } from '../login/login';
+
 
 /**
  * Generated class for the MenulistPage page.

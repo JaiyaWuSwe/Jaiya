@@ -1,10 +1,10 @@
 import { MenulistPage } from './../menulist/menulist';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, Menu } from 'ionic-angular';
+import { NavController, NavParams, AlertController} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
-import { MenuPage } from '../menu/menu';
+
 
 
 export const headers = new HttpHeaders().set("X-CustomHeader", "custom header value");

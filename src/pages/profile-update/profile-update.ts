@@ -1,9 +1,8 @@
-import { MenulistPage } from './../menulist/menulist';
 
 import { ProfileDisplayPage } from './../profile-display/profile-display';
 import { Component } from '@angular/core';
 import { NavController, NavParams,AlertController } from 'ionic-angular';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 

@@ -4,8 +4,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MenuPage } from '../menu/menu';
-// import { Dialogs } from '@ionic-native/dialogs';
+
 
 export const headers = new HttpHeaders().set("X-CustomHeader", "custom header value");
 @Component({

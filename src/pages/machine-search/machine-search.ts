@@ -48,12 +48,12 @@ export class MachineSearchPage {
 
   ionViewDidLoad() {
     // this.userId= window.localStorage.getItem('userId');
-      let jsonData;
+    
 
     let option = {
       headers: this.headers
     }
-    let jsObject ;
+   
    
 
     this.http.post(this.base_url+'machine/searchMachine', {}, option)
