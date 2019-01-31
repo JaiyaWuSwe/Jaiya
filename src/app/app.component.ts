@@ -1,4 +1,6 @@
 
+
+
 import { FirstpagePage } from './../pages/firstpage/firstpage';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';

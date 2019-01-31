@@ -57,7 +57,7 @@ export class MapDisplayPage {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
 
-      // let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
+      let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
       let toast = this.toastCtrl.create({
         message: "กำลังดำเนินการ.........",
         duration: 3000,

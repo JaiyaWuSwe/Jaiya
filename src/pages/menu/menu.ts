@@ -1,3 +1,5 @@
+import { MachineSearchPage } from './../machine-search/machine-search';
+import { HelpPage } from './../help/help';
 import { MapSearchPage } from './../map-search/map-search';
 import { DrungHistoryPage } from './../drung-history/drung-history';
 import { DrungDisplayPage } from './../drung-display/drung-display';
@@ -28,21 +30,34 @@ import { ProfileDisplayPage } from '../profile-display/profile-display';
 export class MenuPage {
   rootPage: any;
   pages = [];
+  public role;
   @ViewChild(Nav) nav: Nav;
   constructor(public navCtrl: NavController, public navParams: NavParams, public appCtrl: App,
     public storage: Storage,private alertCtrl: AlertController ) {
   }
- 
+  
   ionViewWillEnter() {
-    this.pages = [
-      { title: 'บัญชีผู้ใช้', page: ProfileDisplayPage, icon: 'home' },
-      { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'ios-alarm-outline' },
-      { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'ios-alert-outline' },
-      { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'ios-clipboard-outline' },
-      { title: 'ค้นหาโรงพยาบาล', page: MapSearchPage, icon: 'planet' },
-      { title: 'หน้าหลัก', page: MenulistPage, icon: 'home' }
-      
-    ];
+    this.role= window.localStorage.getItem('role');
+    if(this.role == "1"){
+      this.pages = [
+        { title: 'แสดงสถานะตู้ยา', page: MachineSearchPage, icon: 'ios-clipboard-outline' },
+        { title: 'ข้อตกลงในการใช้ซอฟต์แวร์', page: HelpPage, icon: 'planet' },
+
+      ];
+    }else{
+      this.pages = [
+        { title: 'หน้าหลัก', page: MenulistPage, icon: 'home' },
+        { title: 'บัญชีผู้ใช้', page: ProfileDisplayPage, icon: 'home' },
+        { title: 'ตั้งเวลากินยา', page: DrungCreatePage, icon: 'ios-alarm-outline' },
+        { title: 'ดูสถานะยา', page: DrungDisplayPage, icon: 'ios-alert-outline' },
+        { title: 'ประวัติการกินยา', page: DrungHistoryPage, icon: 'ios-clipboard-outline' },
+        { title: 'ค้นหาโรงพยาบาล', page: MapSearchPage, icon: 'planet' },
+        { title: 'ข้อตกลงในการใช้ซอฟต์แวร์', page: HelpPage, icon: 'planet' },
+        
+        
+      ];
+    }
+    
     this.openPage(MenulistPage);
   }
 

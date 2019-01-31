@@ -1,3 +1,4 @@
+import { HelpPage } from './../help/help';
 import { MapSearchPage } from './../map-search/map-search';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController,App } from 'ionic-angular';
@@ -79,6 +80,10 @@ export class MenulistPage {
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
     this.appCtrl.getRootNav().setRoot(FirstpagePage);
+  }
+
+  argreement(){
+    this.navCtrl.setRoot(HelpPage);
   }
 
 

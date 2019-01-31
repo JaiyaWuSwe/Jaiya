@@ -1,3 +1,5 @@
+import { MenulistAdminPage } from './../menulist-admin/menulist-admin';
+import { MachineSearchPage } from './../machine-search/machine-search';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
@@ -14,14 +16,21 @@ import { MenuPage } from '../menu/menu';
 export class FirstpagePage {
   public myDate;
   public userId;
+  public role;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     this.userId= window.localStorage.getItem('userId');
+    this.role= window.localStorage.getItem('role');
     if(this.userId !=null || this.userId != undefined){
-      this.navCtrl.setRoot(MenuPage);
+      if(this.role == "1"){
+        this.navCtrl.setRoot(MenulistAdminPage);
+      }else{
+        this.navCtrl.setRoot(MenuPage);
+      }
+      
     }
     console.log('ionViewDidLoad Login');
   }

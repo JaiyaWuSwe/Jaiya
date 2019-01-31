@@ -52,7 +52,7 @@ export class MachineDisplayPage {
     this.geolocation.getCurrentPosition().then( pos => {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
-      // let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
+      let location='lat '+pos.coords.latitude+' lang '+pos.coords.longitude;
       let toast = this.toastCtrl.create({
         message: "กำลังดำเนินการ.........",
         duration: 3000,
@@ -79,15 +79,15 @@ export class MachineDisplayPage {
        }
     };
     this.map = GoogleMaps.create('map_canvas', mapOptions);
-    // let marker: Marker = this.map.addMarkerSync({
-    //   title: name,
-    //   icon: 'green',
-    //   animation: 'DROP',
-    //   position: {
-    //     lat:this.lat,
-    //     lng:this.lng
-    //   }
-    // });
+    let marker: Marker = this.map.addMarkerSync({
+      title: name,
+      icon: 'green',
+      animation: 'DROP',
+      position: {
+        lat:this.lat,
+        lng:this.lng
+      }
+    });
   }
     
   

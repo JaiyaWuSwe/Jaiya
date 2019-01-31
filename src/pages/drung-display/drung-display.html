@@ -17,12 +17,12 @@
               <ion-col col-7 >
             <p>เวลา </p> {{t.time}}  <br>
             <p>ยา </p> {{t.drug}} <br>
-            {{t.duration}}
+            <br>{{t.duration}}
           </ion-col>
           <ion-col col-5>
           
               <button ion-button round  color ="secondary" (click)="goTo(t._id)"> <ion-icon name="md-checkmark"></ion-icon>กดรับยา</button><br>
-              <button ion-button round  color ="danger" (click)="Delete(t._id)"> <ion-icon name="md-close"></ion-icon>ลบแจ้งเตือน</button>
+              <button ion-button round  color ="danger" (click)="Delete(t._id,t.alertid)"> <ion-icon name="md-close"></ion-icon>ลบแจ้งเตือน</button>
           
         </ion-col> 
       </ion-row>

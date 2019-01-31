@@ -1,3 +1,4 @@
+import { MenulistAdminPage } from './../pages/menulist-admin/menulist-admin';
 import { HelpPage } from './../pages/help/help';
 import { MachineDisplayPage } from './../pages/machine-display/machine-display';
 import { MachineSearchPage } from './../pages/machine-search/machine-search';
@@ -50,7 +51,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     TestPage,
     MachineSearchPage,
     MachineDisplayPage,
-    HelpPage
+    HelpPage,
+    MenulistAdminPage
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     TestPage,
     MapDisplayPage,
     MachineSearchPage,MachineDisplayPage,
-    HelpPage
+    HelpPage,
+    MenulistAdminPage,
   ],
   providers: [
     StatusBar,

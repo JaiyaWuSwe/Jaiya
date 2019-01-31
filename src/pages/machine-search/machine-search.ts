@@ -1,6 +1,6 @@
 import { MachineDisplayPage } from './../machine-display/machine-display';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -33,7 +33,7 @@ export class MachineSearchPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public formbuilder:FormBuilder, public http : HttpClient,) {
+    public formbuilder:FormBuilder, public http : HttpClient, private alertCtrl: AlertController) {
 
   }
 

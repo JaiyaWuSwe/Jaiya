@@ -28,7 +28,7 @@
             </div>
          <ion-item>
               <ion-label  floating color="primary">ชื่อยา</ion-label>
-              <ion-input type="text" formControlName="drug" [(ngModel)]="drug"></ion-input>
+              <ion-input type="text" formControlName="drug" [(ngModel)]="drug" placeholder="            ยาพารา 1 เม็ด"></ion-input>
             </ion-item>
             <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.drug">

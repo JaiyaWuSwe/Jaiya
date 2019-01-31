@@ -28,7 +28,7 @@ export class LoginPage {
   // public base_url = "http://localhost:8080/jaiya/api/";
     //  public base_url ='http://202.183.198.114:8080/jaiya/api/';
      
-     public base_url ='http://172.16.82.188:8080/jaiya/api/';
+    public base_url ='http://202.183.198.114:8080/jaiya/api/';
 
   
 
@@ -57,7 +57,6 @@ export class LoginPage {
     ]
   }
   sendRequest(){
-    alert("doing");
     let jsonData;
     
     let option = {

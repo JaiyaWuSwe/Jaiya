@@ -34,9 +34,10 @@ export class DrungCreatePage {
     public amount;
     public volume;
     public duration;
-    public alertId;
+    public alertid;
     public userId;
     public alertAgain;
+   public date = "date";
     
     // public base_url = "http://localhost:8080/jaiya/api/";
        public base_url ='http://202.183.198.114:8080/jaiya/api/';
@@ -81,7 +82,7 @@ export class DrungCreatePage {
     var secound = new Date().getSeconds();
     var hour = this.notifyTime.substr(0,2); //c
     var minus = this.notifyTime.substr(3); //d  
-    // this.alertId = new Date();
+    this.alertid = new Date();
     let jsonData;
     
     let option = {
@@ -89,12 +90,13 @@ export class DrungCreatePage {
     }
     // // Create JSON object from username & email
     let jsObject = { 
-        // alertId:this.alertId,
+      alertid:this.alertid,
         userId: this.userId, 
         time: this.notifyTime, 
         drug:this.drug,
         amount:this.amount,
-        duration:this.duration
+        duration:this.duration,
+        date:this.date
                   }
     jsonData = JSON.stringify(jsObject);
     this.http.post(this.base_url+'timetogetpillow/insert', jsonData, option)
@@ -148,10 +150,12 @@ export class DrungCreatePage {
    
 
       this.localNotifications.schedule({
-          text: "ชื่ออยา"+this.drug+"เวลา"+this.notifyTime,
+          id:this.alertid,
+          text: "ชื่อยา"+this.drug+"เวลา"+this.notifyTime,
            trigger: {at: new Date(new Date().getTime()+this.time)},
           led: 'FF0000',
-          sound: 'file://assets/sound/beep.mp3',
+          sound: 'file://assets/sound/alertsound.mp3',
+          // sound: 'file://assets/sound/The.mp3',
       });
       
       //ตั้งเวลาซ้ำเป็น ทุุกชั่วโมง ทุกวัน

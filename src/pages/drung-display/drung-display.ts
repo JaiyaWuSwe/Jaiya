@@ -24,12 +24,12 @@ export class DrungDisplayPage {
     public amount;
     public volume;
     public duration;
-    public alert;
+    public alertid;
     public userId;
     public _id;
     public status ;
     public test=[];
-    public alertId;
+
       // public base_url = "http://localhost:8080/jaiya/api/";
          public base_url ='http://202.183.198.114:8080/jaiya/api/';
 
@@ -57,8 +57,8 @@ export class DrungDisplayPage {
 }
 goTo(_id) {
   _id = _id || 'No hospital Entered';
-   var d = new Date();
-   var date = d.getDay()+"/"+d.getMonth+"/"+d.getFullYear+"  "+d.getHours+":"+d.getMinutes;
+   var date = new Date();
+ 
   let jsonData;
       
 
@@ -98,8 +98,10 @@ goTo(_id) {
       });
   
 }
-Delete(_id) {
-  _id = _id || 'No hospital Entered';
+Delete(_id,alertid) {
+  _id = _id ;
+  alertid = alertid;
+   
   let jsonData;
       
 
@@ -116,7 +118,7 @@ Delete(_id) {
   this.http.post(this.base_url+"timetogetpillow/delete",jsonData, option).subscribe((data:any) => {
     
           if(data.message == true  ){ 
-            this.localNotifications.clear(this.alertId);
+            this.localNotifications.clear(alertid);
             let alert = this.alertCtrl.create({
               title: 'ลบ',
               message: 'ลบสำเร็จ',
